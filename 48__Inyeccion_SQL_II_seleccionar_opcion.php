@@ -9,12 +9,21 @@
 
 <body>
     <?php
-    $usuario = $_GET['campo_usuario'];
-
-    $clave = $_GET['campo_clave'];
     require("00_conexion_a_base_de_datos.php");
-
     $conexion = mysqli_connect($db_host, $db_usuario, $db_clave);
+
+    $usuario = $_GET["campo_usuario"];
+   
+    $clave =  $_GET['campo_clave']; 
+
+    
+    
+    
+//     $usuario = mysqli_real_escape_string($conexion, $_GET["campo_usuario"]); // evitando inyecion sql, escapando los caracteres especiales [ mysqli_real_escape_string()]
+
+
+
+//     $clave = mysqli_real_escape_string($conexion,  $_GET['campo_clave']); // evitando inyecion sql, escapando los caracteres especiales [ mysqli_real_escape_string()];
 
     mysqli_select_db($conexion, $db_nombre) or die("Error: No se pudo conectar a  la Base de datos ");
     echo "Conección éxitosa: MySQL ==>" . PHP_EOL;
