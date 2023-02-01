@@ -44,7 +44,7 @@
     
     $conexion = mysqli_connect($db_host, $db_usuario, $db_clave); // almacemando la Conección
     
-    mysqli_select_db($conexion, $db_nombre) or dir("ERROR: no se encuentra la base de datos");
+    mysqli_select_db($conexion, $db_nombre) or dir("ERROR: no se encuentra la base de datos");// SELECCION DE BASE DE DATOS Y EXECCION  POR FALLO DE CONEXION
 
     echo "Conección éxitosa: MySQL " . PHP_EOL . "<br />"; // mensaje de estado de la Conección
     
