@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <title>Formulario de Ingreso</title>
     <link rel="stylesheet" href="linkToCSS" />
-    
+
 </head>
 
 <body>
-    <form method='get' action='48__Inyeccion_SQL_II_seleccionar_opcion.php' align="center">
+    <form method='get' action='50__Consultas_preparadasInsertar_seleccionar_opcion.php' align="center">
 
 
         <fieldset>
@@ -23,10 +23,10 @@
 
                 <input type='submit' value='Enviar'>
             </div>
-   
+
         </fieldset>
     </form>
-
+   
 </body>
 
 </html>

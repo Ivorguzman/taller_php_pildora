@@ -24,7 +24,7 @@ $registro_afectado = mysqli_affected_rows($conexion); // cantidad de registros a
 
 if ($resultado_query && $busqueda != null && $registro_afectado != 0) {
     echo "Registro Eliminado exitosamente  ==> " . $registro_afectado;
-} else  {
+} else {
     echo "No existe registro que eliminar,  Registros eliminados  ==> " . $registro_afectado;
 }
 ;

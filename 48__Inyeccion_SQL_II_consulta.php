@@ -11,7 +11,7 @@ $busqueda = mysqli_real_escape_string($conexion, $_GET["buscar"]); // evitando i
 
 
 mysqli_select_db($conexion, $db_nombre) or die("Error: No se pudo conectar a  la Base de datos ");
-echo "Conección éxitosa: MySQL ==>" . PHP_EOL;
+echo "Conección éxitosa a Base de datos ==>" . PHP_EOL;
 echo "Información del host: " . mysqli_get_host_info($conexion) . PHP_EOL;
 echo "<br /><br /><br />";
 
@@ -24,8 +24,8 @@ $resultado_query = mysqli_query($conexion, $query);
 
 
 
-if ( mysqli_affected_rows($conexion) == 0 ) { //verificacion si existe registro en ase de datos
-    echo "No existe registro : ";
+if (mysqli_affected_rows($conexion) == 0) { //verificacion si existe registro en ase de datos
+    echo "No existe ese codigo de articulo : ";
     exit("======= Consulta fallida =======");
 } else {
 

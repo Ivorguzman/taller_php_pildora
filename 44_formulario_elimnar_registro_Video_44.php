@@ -28,7 +28,7 @@
 
     </style>
 </head>
-
+ 
 <body>
     <h1>Borrar Registro</h1>
     <br />

@@ -50,11 +50,19 @@
     $resultado = mysqli_query($conexion, $query);
 
     $registro_afectado = mysqli_affected_rows($conexion);
+    // ==================COMPROBACIONES====================================
+    
+    print_r($resultado . "<br />");
+    print_r($codigo_articulo . "<br />");
+    print_r($registro_afectado);
 
-    if ($resultado && $codigo_articulo != null && $registro_afectado != 0) {
+
+    echo "<br />";
+    // ================== FIN COMPROBACIONES====================================
+    if ($registro_afectado > 0) {
         echo "Registro Eliminado exitosamente  ==> " . $registro_afectado;
 
-    } else if ($resultado && $codigo_articulo == 0) {
+    } else {
         echo "No existe registro que eliminar,  Registros eliminados  ==> " . $registro_afectado;
     }
     ;
