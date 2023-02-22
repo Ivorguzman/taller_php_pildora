@@ -36,14 +36,15 @@ mysqli_stmt_execute($resultado_obj_stmt); // ejecutar la consulta, si tiene exit
 
 $registro_afectado = mysqli_affected_rows($conexion);
 
-// ==================COMPROBACIONES====================================
+// ===COMPROBACIONES===
 print "<pre>\n";
-print_r($codigo_articulo . "<br />");
+print_r(mysqli_stmt_bind_param($resultado_obj_stmt, "sssssss", $codigo_articulo, $seccion_articulo, $nombre_articulo, $precio_articulo, $fecha_articulo, $importado_articulo, $articulo_origen) . "<br />");
 print_r($registro_afectado);
 echo "<br />";
 "</pre>";
 echo "<br />";
-// ================== FIN COMPROBACIONES====================================
+// ===FIN COMPROBACIONES===
+
 
 
 if ($registro_afectado > 0) {

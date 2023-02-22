@@ -40,7 +40,7 @@
     $fila = mysqli_fetch_row($resultado);
 
  
-    // todo el if solo funciona solo con la primer fila del resultse de la tabalo productos
+    // ! el if solo funciona solo con la primer fila del resultse de la tabalo productos
     if ($usuario == $fila[2] && $clave == $fila[1]) {
         echo "<form method='metodo' action='#' align=\"center\">";
         echo " <fieldset>";

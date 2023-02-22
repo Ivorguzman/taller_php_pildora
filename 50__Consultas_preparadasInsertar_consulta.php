@@ -1,10 +1,10 @@
 <?php
 
-// $busqueda = "martillo"; // informacion del cuadrode texto  [name=buscar] del formulario 
+$busqueda = "AR200"; // informacion del cuadrode texto  [name=buscar] del formulario 
 // $busqueda = mysqli_real_escape_string($conexion, $_GET["buscar"]); // evitando inyecion sql, escapando los caracteres especiales [ mysqli_real_escape_string()]
 // $busqueda = ["buscar"];
 
-$busqueda = $_GET['buscar']; // informacion del cuadrode texto  [name=buscar] del formulario 
+// $busqueda = $_GET['buscar']; // informacion del cuadrode texto  [name=buscar] del formulario 
 require("00_conexion_a_base_de_datos.php");
 
 $conexion = mysqli_connect($db_host, $db_usuario, $db_clave);
@@ -28,10 +28,10 @@ mysqli_stmt_bind_param($resultado_obj_stmt, "s", $busqueda); // Unir parametros 
 mysqli_stmt_execute($resultado_obj_stmt); // ejecutar la consulta, si tiene exito retorna truee, en caso contrario false
 
 
-
 // ==================COMPROBACIONES====================================
 print "<pre>\n";
-print_r($resultado_obj_stmt);
+print_r($resultado_obj_stmt ); 
+print_r(mysqli_stmt_execute($resultado_obj_stmt)); //1
 "</pre>";
 echo "<br />";
 // ================== FIN COMPROBACIONES====================================
