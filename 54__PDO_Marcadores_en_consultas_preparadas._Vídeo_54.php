@@ -8,7 +8,7 @@ $pais = $_GET["pais_origen"];
 $pais = strtoupper($pais); // transforma en mayuscula el string
 
 
-//! Prepara una sentencia SQL con parámetros de sustitución nombrados [= : Nombre ]
+//! Prepara un}a sentencia SQL con parámetros de sustitución nombrados [= : Nombre ]
 
 
 
@@ -17,47 +17,41 @@ try {
     echo ('conexion establecida' . "<br />");
 
     // ojo estudiar esta linea
-    $conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // Le inndica a la base de datos que capture las execciones al producirce un error (La base de datos crea los obj. tipo execcion)
 
     $conexion_pdo->exec("SET CHARACTER SET utf8"); // Establciendo uso de caracteres especiales
 
-    $query_sql = "SELECT CODIGOARTICULO,NOMBREARTICULO,PRECIO,PAISDEORIGEN,SECCION
-    FROM productos 
+    $query_sql = "SELECT CODIGOARTICULO,NOMBREARTICULO,PRECIO,PAISDEORIGEN,SECCION   
+    FROM productos
     WHERE
      SECCION = :SECCION AND  PAISDEORIGEN = :PAISDEORIGEN"; //Amacenando ejecucuón de consulta metodo con el uso de [= :......]
 //*  $query = "SELECT * FROM  productos where nombrearticulo like '%$laBuequeda%
-
-
-
 
     // ===COMPROBACIONES===
     print "<pre>\n";
     print_r($seccion_articulo . "<br />");
     print_r($pais . "<br /><br />");
     print_r($query_sql . "<br />");
-    // print_r( "$registro[2] ". " linea 75 <br />");
+    print_r('$conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) = '.$conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION));
+    // print_r('$conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) = ' . $conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING));
     echo "<br />";
     print "<pre>";
     // ===FIN COMPROBACIONES===
 
     $obj_pdo_stmt = $conexion_pdo->prepare($query_sql); // alamcenando el Objesto PDOStatemen devuelto (record Set)
 
-    $obj_pdo_stmt->execute(array(":SECCION" => $seccion_articulo, ":PAISDEORIGEN" => $pais)); //
-
-
-    echo "<br />";
-
-
     // Probar con expreiones regulares
-    if ($seccion_articulo == null || $seccion_articulo == 0 || $pais == null || $pais == 0) {
-        exit("producto inexistente");
+    if ($seccion_articulo == null || $seccion_articulo == 0 || $pais == null || $pais == 0 ) {
+        exit("No se pudo realizar la opreración");
     }
+    ;
+    $obj_pdo_stmt->execute(array(":SECCION" => $seccion_articulo, ":PAISDEORIGEN" => $pais)); //
+    echo "<br />";
 
 
 
 
     //[fetch(PDO::FETCH_ASSOC)DEVULVE UN ARRAY CON EL RESULTADO DE LA COSULTA SQL($query_sql)]";
-    echo "======= Consulta Exitosa =======";
     echo "<br /><br />";
     // while ($registro = $obj_pdo_stmt->fetch(PDO::FETCH_ASSOC)) {
     while ($registro = $obj_pdo_stmt->fetch(PDO::FETCH_BOTH)) {
@@ -92,23 +86,29 @@ try {
             "Prescio del articulo : " . $registro["PRECIO"] . "$",
             "Pais del articulo : " . $registro["PAISDEORIGEN"],
         );
-
-
-
-
     }
     ;
 
     // $obj_pdo_stmt->closeCursor();
-
+    // capture la execcion (Exception) que jenero la base de datos y la trnsfiere a la varible ($e)
 } catch (Exception $e) {
-    echo "ERROR: el codigo de execpción es: " . $e->getMessage() . "<br />";
+
+
+    // ===COMPROBACIONES===
+    print "<pre>\n";
+    // print_r( catch (Exception,$e). "<br />");
+    print_r('Alex: valor de la variable $e : '.$e . "<br /><br />");
+    echo "<br />";
+    print "<pre>";
+    // ===FIN COMPROBACIONES===
+
+
+    echo " ALEX, ERROR: el codigo de execpción es: " . $e->getMessage() . "<br />";
     echo "EL archivo es: " . $e->getFile() . "<br />";
+    echo "EL codigo del ERROR es: " . $e->getCode() . "<br />";
     exit("En la linea: " . $e->getLine()) . "<br />";
 } finally {
-
-
-    function disconnect()
+   function disconnect()
     {
         global $conexion_pdo, $obj_pdo_stmt;
         $obj_pdo_stmt->closeCursor();
