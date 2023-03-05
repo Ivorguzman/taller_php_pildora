@@ -49,7 +49,7 @@ $busqueda = $_GET["buscar"];
 //! Amacenando  ejecucuón de consulta metodo con el uso de [= ?]
 
 
-/*
+
 try {
 $conexion_pdo = new PDO($dsn, $usuario, $contraseña); // Almacenando creación de  conexion objeto tipo conecxion
 echo ('conexion establecida' . "<br />");
@@ -101,7 +101,7 @@ echo " Consultas y conexciones cerradas";
 disconnect();
 }
 ;
-*/
+
 
 
 
