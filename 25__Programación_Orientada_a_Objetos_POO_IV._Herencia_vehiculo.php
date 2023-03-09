@@ -76,7 +76,8 @@ class Camion extends Coche // Coche (Super clase ó clase Padre), Camion(Sub-cla
 
     // Instruccion Parent Llama el metode de la clase padre;
     function arrancar(){
-        parent::arrancar();  
+        parent::arrancar(); // eljecuta le metodo arrancar()
+        echo ". Camion  arrancado"; // agrega esta linea al la ejecucion del metodo arrancar
     }
 
 }
