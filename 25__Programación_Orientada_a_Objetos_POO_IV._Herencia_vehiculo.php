@@ -56,70 +56,33 @@ class Coche
 }
 ;
 
-/* 
-
-
-// Creación de las Instancias (Objetos, Ejemplares) de la clase Coche
-$renault = new Coche();
-$mazda = new Coche();
-$seat = new Coche();
-// Modificando la propiedad color con el metodo crear_color()
-$renault->crear_color("rojo");
-$seat->crear_color("verde");
-$mazda->crear_color("amarillo");
-
-
-echo " Soy el renault y tengo un motor de $renault->motor cc "; // accediendo a la propiedad motor
-echo " mi color es  $renault->color y  ";
-$renault->girar(); // accediendo al el metodo girar()
-echo "<br />";
-
-echo " Soy el mazda y tengo $mazda->ruedas ruedas y mi color es $mazda->color " . "<br />";
-
-echo "Soy el seat y mi color es $seat->color  y ";
-$seat->frenar() . "<br />";
-
-
- */
-
-
-/// ********************************_Clase vehiculo_ *****************
-class Camion
-/// Una clase puede tener sus propias constantes, variables(llamadas "propiedades"), y funciones (llamados "métodos"). 
+/// **_Clase Camion heredadando de Clase coche_**
+class Camion extends Coche // Coche (Super clase ó clase Padre), Camion(Sub-clase ó clase Hijo )
 {
-   
-    var $ruedas;
-    var $color;
-    var $motor;
 
-    function arrancar()
+    function __construct()
     {
-        echo "Estoy arrancando";
-    }
-
-    function girar()
-    {
-        echo "Estoy girando";
-    }
-
-    function frenar()
-    {
-        echo "Estoy frenando";
-    }
-
-      function __construct()
-    //  Metodo constructor
-    /// Le da un estado inicial a la clase 
-    {
-        //  $this Siempre hace referencia a la clase donde su utilice (class Coche(){...})
-        //  -> Se utiliza para referenciar una propiedad o un metodo de la clase.
         $this->ruedas = 8;
-        $this->color = "gris";
+        $this->color = 'gris';
         $this->motor = 2600;
     }
 
+    /// Sobres escritura de metodo establecer color  en la clase Camion de  clase Coche Heredada(extends)
+    function crear_color($color_camion)
+    {
+        $this->color = $color_camion;
+    }
+
+
+    // Instruccion Parent Llama el metode de la clase padre;
+    function arrancar(){
+        parent::arrancar();  
+    }
+
 }
-;
+
+
+
 
 
 
