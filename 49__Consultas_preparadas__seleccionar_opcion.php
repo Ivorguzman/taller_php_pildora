@@ -41,16 +41,14 @@
 
  
     // ! el if solo funciona solo con la primer fila del resultse de la tabalo productos
-    if ($usuario == $fila[2] && $clave == $fila[1]) {
+    if ($usuario == $fila[0] && $clave == $fila[1]) {
         echo "<form method='metodo' action='#' align=\"center\">";
         echo " <fieldset>";
         echo "<legend>Selecione su opcion</legend>";
         echo " <br />";
         echo " <div align=\"center\">";
-        echo " <input align=\"center\" id=\"consulta\" type=\"submit\" name=\"consulta\" value=\"Consultar registro\"
-                formaction=\"/49__Consultas_preparadas_form_consultar.php\">";
-        echo "<input align=\"center\" type=\"submit\" name=\"eliminar \" value=\"Borrar articulo\"
-                    formaction=\"/49__Consultas_preparadas__form_eliminar.php\">";
+        echo " <input align=\"center\" id=\"consulta\" type=\"submit\" name=\"consulta\" value=\"Consultar registro\"formaction=\"/49__Consultas_preparadas_form_consultar.php\">";
+        echo "<input align=\"center\" type=\"submit\" name=\"eliminar \" value=\"Borrar articulo\"formaction=\"/49__Consultas_preparadas__form_eliminar.php\">";
         echo "</div>";
         echo "</fieldset>";
         echo " </form>";
