@@ -22,8 +22,8 @@
     // echo "Soy coche mazda   y ", $mazda->frenar() . "<br />"; // concatenndo CON [,] ==  string despues metodo
     // echo " Soy coche mazda mi color es $mazda->color" . "<br />";
     echo " Soy coche mazda y tengo $mazda->ruedas ruedas" . "<br />";
-    
-    ///  echo "Soy camion pegaso y ahora tengo "   . $mazda-> ruedas = 2 ." ruedas" . "<br />";
+
+    // echo "Soy camion pegaso y ahora tengo"   . $mazda-> ruedas = 2 ." ruedas" . "<br />";
 
  
     // ____________________________________________
@@ -33,8 +33,8 @@
     // echo "Soy camion pegaso, ", $pegaso->frenar() . "<br />";
     // echo $pegaso->crear_color('rojo verdozo');
     // echo "Soy camion pegaso, mi color es  ", $pegaso->color . "<br />";
-    // echo "Soy camion pegaso, y tengo $pegaso->ruedas  ruedas " . "<br />";
-    // echo "Soy camion pegaso y ahora tengo"   . $pegaso-> ruedas=2 ." ruedas";
+    echo "Soy camion pegaso, y tengo $pegaso->ruedas  ruedas " . "<br />";
+    echo "Soy camion pegaso y ahora tengo"   . $pegaso-> ruedas=2 ." ruedas";
     ?>
 </body>
 
